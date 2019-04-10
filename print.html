@@ -1,0 +1,323 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Odoo - Purchase</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li class="affix"><a href="prakata.html">Pra-Kata</a></li><li class="affix"><a href="terminologi.html">Terminologi</a></li><li><a href="transaksi.html"><strong aria-hidden="true">1.</strong> Transaksi</a></li><li><ol class="section"><li><a href="transaksi/purchase-order.html"><strong aria-hidden="true">1.1.</strong> Purchase Order</a></li><li><ol class="section"><li><a href="transaksi/purchase-order/penjelasan.html"><strong aria-hidden="true">1.1.1.</strong> Penjelasan Purchase Order</a></li><li><a href="transaksi/purchase-order/petunjuk-pengisian.html"><strong aria-hidden="true">1.1.2.</strong> Petunjuk Pengisian Purchase Order</a></li><li><ol class="section"><li><a href="transaksi/purchase-order/petunjuk-pengisian-line.html"><strong aria-hidden="true">1.1.2.1.</strong> Petunjuk Pengisian Purchase Order Line</a></li></ol></li><li><a href="transaksi/purchase-order/membuat.html"><strong aria-hidden="true">1.1.3.</strong> Membuat Purchase Order</a></li><li><a href="transaksi/purchase-order/convert-po.html"><strong aria-hidden="true">1.1.4.</strong> Convert To PO</a></li><li><a href="transaksi/purchase-order/konfirmasi.html"><strong aria-hidden="true">1.1.5.</strong> Mengkonfirmasi Purchase Order</a></li></ol></li></ol></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Odoo - Purchase</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#pra-kata" id="pra-kata"><h1>Pra-Kata</h1></a>
+<a class="header" href="#terminologi" id="terminologi"><h1>Terminologi</h1></a>
+<a class="header" href="#transaksi" id="transaksi"><h1>Transaksi</h1></a>
+<a class="header" href="#purchase-order" id="purchase-order"><h1>Purchase Order</h1></a>
+<ul>
+<li><a href="transaksi/./purchase-order/penjelasan.html">Penjelasan Purchase Order</a></li>
+<li><a href="transaksi/./purchase-order/petunjuk-pengisian.html">Petunjuk Pengisian Purchase Order</a></li>
+<li><a href="transaksi/./purchase-order/membuat.html">Membuat Purchase Order</a></li>
+<li><a href="transaksi/./purchase-order/convert-po.html">Convert To PO</a></li>
+<li><a href="transaksi/./purchase-order/konfirmasi.html">Mengkonfirmasi Purchase Order</a></li>
+</ul>
+<a class="header" href="#penjelasan-purchase-order" id="penjelasan-purchase-order"><h1>Penjelasan Purchase Order</h1></a>
+<ul>
+<li><a href="#header">Header</a></li>
+<li><a href="#tab-product">Tab Products</a></li>
+<li><a href="#tab-rfq">Tab RFQ &amp; Bids</a></li>
+<li><a href="#tab-revision">Tab Revisions</a></li>
+<li><a href="#tab-policy">Tab Policy</a></li>
+<li><a href="#tab-term">Tab Terms and Conditions</a></li>
+</ul>
+<a class="header" href="#a-nameheadera-headera" id="a-nameheadera-headera"><h2><a name="header">A. HEADER</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-header.png" alt="" /></p>
+<a class="header" href="#a-nametab-productb-tab-productsa" id="a-nametab-productb-tab-productsa"><h2><a name="tab-product">B. TAB PRODUCTS</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-tab-product.png" alt="" /></p>
+<a class="header" href="#a-nametab-rfqc-tab-rfq--bida" id="a-nametab-rfqc-tab-rfq--bida"><h2><a name="tab-rfq">C. TAB RFQ &amp; BID</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-tab-rfq.png" alt="" /></p>
+<a class="header" href="#a-nametab-revisiond-tab-revisionsa" id="a-nametab-revisiond-tab-revisionsa"><h2><a name="tab-revision">D. TAB REVISIONS</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-tab-revision.png" alt="" /></p>
+<a class="header" href="#a-nametab-policye-tab-policya" id="a-nametab-policye-tab-policya"><h2><a name="tab-policy">E. TAB POLICY</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-tab-policy.png" alt="" /></p>
+<a class="header" href="#a-nametab-termf-tab-terms-and-conditionsa" id="a-nametab-termf-tab-terms-and-conditionsa"><h2><a name="tab-term">F. TAB TERMS AND CONDITIONS</a></h2></a>
+<p><img src="../../img/purchase-order/penjelasan-tab-term.png" alt="" /></p>
+<a class="header" href="#petunjuk-pengisian-purchase-order" id="petunjuk-pengisian-purchase-order"><h1>Petunjuk Pengisian Purchase Order</h1></a>
+<a class="header" href="#a-langkah-kerja" id="a-langkah-kerja"><h2>A. LANGKAH KERJA</h2></a>
+<ol>
+<li>Pilih <strong>Supplier</strong>. Harus diisi.</li>
+<li>Pilih <strong>Type</strong>. Harus diisi.</li>
+<li>Pilih <strong>Consignee</strong>. Tidak harus diisi.</li>
+<li>Pilih <strong>Origin Address</strong>. Harus diisi.</li>
+<li>Isi <strong>Supplier Reference</strong>. Tidak harus diisi.</li>
+<li>Pilih <strong>Requesting Operating Unit</strong>. Tidak harus diisi.</li>
+<li>Pilih <strong>Operating Unit</strong>. Tidak harus diisi.</li>
+<li>Pilih <strong>Pricelist</strong>. Harus diisi.</li>
+<li>Pilih <strong>Currency</strong>. Harus diisi.</li>
+<li>Isi <strong>Order Date</strong>. Harus diisi.</li>
+<li>Pilih <strong>Deliver To</strong>. Harus diisi.</li>
+<li>Untuk setiap produk yang dibeli lakukan <a href="transaksi/purchase-order/./petunjuk-pengisian-line.html">Prosedur Pengisian Purchase Order Line</a></li>
+<li><a name="l13">Lanjutkan</a> langkah ke-4 <a href="transaksi/purchase-order/./membuat.html#l4">Prosedur Pembuatan Purchase Order</a> ketika sedang membuat atau lanjutkan langkah ke-4 <a href="transaksi/purchase-order/./modifikasi.html#l4">Prosedur Modifikasi Purchase Order</a></li>
+</ol>
+<a class="header" href="#petunjuk-pengisian-purchase-order-line" id="petunjuk-pengisian-purchase-order-line"><h1>Petunjuk Pengisian Purchase Order Line</h1></a>
+<a class="header" href="#a-input" id="a-input"><h2>A. INPUT</h2></a>
+<a class="header" href="#b-langkah-kerja" id="b-langkah-kerja"><h2>B. LANGKAH KERJA</h2></a>
+<ol>
+<li><a name="l1">Klik</a> label <strong>Add an Item</strong> pada tabel <strong>Products</strong></li>
+</ol>
+<p><img src="../../img/purchase-order/tombol-add-item.png" alt="" /></p>
+<ol start="2">
+<li>Pilih <strong>Product</strong>. Harus diisi.</li>
+<li>Sesuaikan isian <strong>Description</strong> jika dibutuhkan. Harus diisi.</li>
+<li>Isi <strong>Schedule Date</strong>. Harus diisi.</li>
+<li>Pilih <strong>Analytic Account</strong>. Tidak harus diisi.</li>
+<li>Isi <strong>Quantity</strong>. Harus diisi.</li>
+<li>Sesuaikan pilihan <strong>Product Unit of Measure</strong> jika dibutuhkan. Harus diisi.</li>
+<li>Isi <strong>Unit Price</strong>. Harus diisi.</li>
+<li>Pilih <strong>Taxes</strong>. Tidak harus diisi.</li>
+<li>Ulangi <a href="#l1">langkah ke-1</a> untuk menambahkan produk berikutnya.</li>
+<li>Lanjutkan ke <a href="transaksi/purchase-order/./petunjuk-pengisian.html#l13">langkah ke-13 Petunjuk Pengisian Purchase Order</a></li>
+</ol>
+<a class="header" href="#membuat-purchase-order" id="membuat-purchase-order"><h1>Membuat Purchase Order</h1></a>
+<a class="header" href="#a-input-1" id="a-input-1"><h2>A. INPUT</h2></a>
+<a class="header" href="#b-langkah-kerja-1" id="b-langkah-kerja-1"><h2>B. LANGKAH KERJA</h2></a>
+<ol>
+<li>Buka menu <strong>Purchase -&gt; Purchase -&gt; Requests for Quotation</strong>.</li>
+<li>Klik tombol <strong>Create</strong> pada bagian atas-kiri form.</li>
+</ol>
+<p><img src="../../img/purchase-order/tombol-create.png" alt="" /></p>
+<ol start="3">
+<li>Isi data sesuai dengan <a href="transaksi/purchase-order/./petunjuk-pengisian.html">Petunjuk Pengisian Purchase Order</a>.</li>
+<li><a name="l4">Klik</a> tombol <strong>Save</strong> pada bagian atas-kiri form.</li>
+</ol>
+<p><img src="../../img/purchase-order/tombol-save.png" alt="" /></p>
+<a class="header" href="#c-output" id="c-output"><h2>C. OUTPUT</h2></a>
+<ul>
+<li>Data purchase order akan terbuat dengan status <strong>Draft RFQ</strong></li>
+</ul>
+<p><img src="../../img/purchase-order/status-draft-rfq.png" alt="" /></p>
+<a class="header" href="#convert-to-po" id="convert-to-po"><h1>Convert To PO</h1></a>
+<a class="header" href="#a-input-2" id="a-input-2"><h2>A. INPUT</h2></a>
+<ul>
+<li>Data purchase order yang akan di-<em>convert</em> harus memiliki status <strong>Draft Rfq</strong></li>
+</ul>
+<p><img src="../../img/purchase-order/status-draft-rfq.png" alt="" /></p>
+<ul>
+<li>User yang akan melakukan <em>convert to PO</em> harus memiliki akses untuk <em>convert to PO</em></li>
+</ul>
+<a class="header" href="#b-langkah-kerja-2" id="b-langkah-kerja-2"><h2>B. LANGKAH KERJA</h2></a>
+<ol>
+<li>Buka menu <strong>Purchase -&gt; Purchase -&gt; Requests for Quotation</strong>. Abaikan berada pada menu yang dimaksud</li>
+<li>Bukan data purchase order yang akan diconvert. Abaikan jika data sudah dibuka.</li>
+<li>Klik tombol <strong>Convert To Po</strong> pada bagian atas-kiri form.</li>
+</ol>
+<p><img src="../../img/purchase-order/tombol-convert-po.png" alt="" /></p>
+<a class="header" href="#c-output-1" id="c-output-1"><h2>C. OUTPUT</h2></a>
+<ul>
+<li>Status purchase order akan berubah menjadi <strong>Draft PO</strong></li>
+</ul>
+<p><img src="../../img/purchase-order/status-draft-po.png" alt="" /></p>
+<a class="header" href="#mengkonfirmasi-purchase-order" id="mengkonfirmasi-purchase-order"><h1>Mengkonfirmasi Purchase Order</h1></a>
+<a class="header" href="#a-input-3" id="a-input-3"><h2>A. INPUT</h2></a>
+<ul>
+<li>Data purchase order yang akan dikonfirmasi harus memiliki status <strong>Draft PO</strong></li>
+</ul>
+<p><img src="../../img/purchase-order/status-draft-po.png" alt="" /></p>
+<ul>
+<li>User yang akan melakukan konfirmasi harus memiliki akses untuk mengkonfirmasi purchase order</li>
+</ul>
+<a class="header" href="#b-langkah-kerja-3" id="b-langkah-kerja-3"><h2>B. LANGKAH KERJA</h2></a>
+<ol>
+<li>Buka menu <strong>Purchase -&gt; Purchase -&gt; Requests for Quotation</strong>. Abaikan berada pada menu yang dimaksud</li>
+<li>Bukan data purchase order yang akan diconvert. Abaikan jika data sudah dibuka.</li>
+<li>Klik tombol <strong>Confirm Order</strong> pada bagian atas-kiri form.</li>
+</ol>
+<p><img src="../../img/purchase-order/tombol-confirm.png" alt="" /></p>
+<a class="header" href="#c-output-2" id="c-output-2"><h2>C. OUTPUT</h2></a>
+<ul>
+<li>Status purchase order akan berubah menjadi <strong>Purchase Confirm</strong></li>
+</ul>
+<p><img src="../../img/purchase-order/status-confirm.png" alt="" /></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
